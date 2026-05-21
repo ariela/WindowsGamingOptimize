@@ -3,10 +3,10 @@
 
 <#
 .SYNOPSIS
-    電源プランを「バランス」に設定する（UMPC 専用）。
+    電源プランを「バランス」に設定する。
 .DESCRIPTION
     powercfg でバランス電源プランをアクティブにする。
-    携帯型 UMPC のバッテリー持続時間とパフォーマンスのバランスを最適化する。
+    パフォーマンスと省電力のバランスを取った Windows 標準プランを適用する。
     適用前に現在のアクティブプランを Write-ScriptLog で記録する。
 .EXAMPLE
     Set-BalancedPowerPlan

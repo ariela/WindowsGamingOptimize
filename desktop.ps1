@@ -39,7 +39,7 @@ foreach ($Category in @('common', 'desktop')) {
 # 実行する最適化を順序付きで明示
 $Steps = @(
     'Disable-GameBar'
-    'Set-HighPerformancePowerPlan'
+    'Set-BalancedPowerPlan'
     'Set-ExplorerOption'
     'Set-MouseSetting'
     'Set-StartMenuSetting'
