@@ -15,6 +15,34 @@ Windows gaming PC 向けの設定・最適化スクリプト群。以下の2種�
 - Shell: PowerShell 5.x
 - 管理者権限での実行を前提とする
 
+## Development Environment
+
+ツールバージョン管理に [mise](https://mise.jdx.dev/) を使用する。`.mise.toml` でバージョンを固定している。
+
+- **pwsh**: 7.4.15（LTS）— 静的解析・スクリプト検証用
+
+### セットアップ
+
+```sh
+# ツールインストール（初回 or バージョン変更後）
+mise install
+
+# PSScriptAnalyzer インストール（初回のみ）
+mise run install-analyzer
+```
+
+## Static Analysis
+
+コードを修正したら `mise run lint` で静的解析を実施する。
+
+```sh
+mise run lint
+```
+
+- `PSUseBOMForUnicodeEncodedFile` ルールは除外済み（macOS/Linux での開発を考慮）
+- `Error` 重大度の指摘があると exit 1 で終了する
+- `Warning` / `Information` は一覧表示のみ（exit 0）
+
 ## Repository Conventions
 
 ### ディレクトリ構成（想定）

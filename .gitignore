@@ -1,6 +1,11 @@
 # Created by https://www.toptal.com/developers/gitignore/api/windows,macos,linux,visualstudiocode,intellij,intellij+all,intellij+iml,dotenv,direnv
 # Edit at https://www.toptal.com/developers/gitignore?templates=windows,macos,linux,visualstudiocode,intellij,intellij+all,intellij+iml,dotenv,direnv
 
+### Project-specific ###
+# スクリプト実行時に自動生成されるディレクトリ
+logs/
+backup/
+
 ### direnv ###
 .direnv
 .envrc
