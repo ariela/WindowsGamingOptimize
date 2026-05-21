@@ -41,6 +41,19 @@ foreach ($Category in @('common', 'umpc')) {
 $Steps = @(
     'Disable-GameBar'
     'Set-BalancedPowerPlan'
+    'Set-ExplorerOption'
+    'Set-MouseSetting'
+    'Set-StartMenuSetting'
+    'Set-TaskbarSetting'
+    'Set-NtpServer'
+    'Set-GameSetting'
+    'Set-DisplaySetting'
+    'Set-AccessibilitySetting'
+    'Set-PrivacySetting'
+    'Set-AppXService'
+    'Set-NetworkSetting'
+    'Set-DefenderExclusion'
+    'Disable-VisualEffect'
 )
 
 $FailureCount = 0

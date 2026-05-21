@@ -40,6 +40,18 @@ foreach ($Category in @('common', 'desktop')) {
 $Steps = @(
     'Disable-GameBar'
     'Set-HighPerformancePowerPlan'
+    'Set-ExplorerOption'
+    'Set-MouseSetting'
+    'Set-StartMenuSetting'
+    'Set-TaskbarSetting'
+    'Set-NtpServer'
+    'Set-GameSetting'
+    'Set-DisplaySetting'
+    'Set-AccessibilitySetting'
+    'Set-PrivacySetting'
+    'Set-AppXService'
+    'Set-NetworkSetting'
+    'Set-DefenderExclusion'
 )
 
 $FailureCount = 0
