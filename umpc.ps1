@@ -52,6 +52,7 @@ $Steps = @(
     'Set-AccessibilitySetting'
     'Set-PrivacySetting'
     'Set-AppXService'
+    'Disable-SysMain'
     'Set-NetworkSetting'
     'Set-DefenderExclusion'
     'Disable-VisualEffect'
