@@ -126,6 +126,19 @@ catch {
 ヘルプキーワードは大文字（`.SYNOPSIS`・`.DESCRIPTION`・`.PARAMETER`・`.EXAMPLE`・`.OUTPUTS`）。
 最低限 `.SYNOPSIS` と `.EXAMPLE` を含める。
 
+## ファイルエンコーディング
+
+`.ps1` ファイルは **UTF-8 BOM 付き（EF BB BF）** で保存する。
+
+**Why:** Windows PowerShell 5.1 は BOM なし UTF-8 を ANSI（CP932）として読み込むため、日本語コメント・文字列が文字化けする。
+
+**How to apply:**
+
+- `Edit` ツールによる差分編集は既存 BOM を保持するため通常は問題なし。
+- `Write` ツールで全体再書き込みする場合、BOM が失われることがある。書き込み後に `head -c 3 <file> | xxd` で `ef bb bf` を確認する。
+- 失われていた場合は BOM 付きで書き直す。
+- `PSUseBOMForUnicodeEncodedFile` lint ルールは linter 設定で除外済みだが、BOM 付与の要件自体は有効。
+
 ## 静的解析
 
 PSScriptAnalyzer をデフォルトルールで適用し、警告ゼロを目標とする。
