@@ -63,8 +63,11 @@ desktop・UMPC の両機種に適用される最適化スクリプト。
 
 ## desktop
 
-現在 `desktop/` ディレクトリに Desktop 専用の最適化スクリプトはない。
-`desktop.ps1` は Common の全 15 スクリプトを適用する。
+Desktop Gaming PC 専用の最適化スクリプト。`desktop.ps1` は Common の全 15 スクリプトに加え、以下を適用する。
+
+| スクリプト名 | 説明 |
+|---|---|
+| `DisableHibernation.ps1` | 休止状態を無効化し、hiberfil.sys を削除してディスク容量を確保する |
 
 ---
 

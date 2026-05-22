@@ -54,6 +54,7 @@ $Steps = @(
     'Disable-SysMain'
     'Set-NetworkSetting'
     'Set-DefenderExclusion'
+    'Disable-Hibernation'
 )
 
 $FailureCount = 0
