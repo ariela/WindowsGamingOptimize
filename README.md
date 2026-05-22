@@ -57,19 +57,20 @@ desktop・UMPC の両機種に適用される最適化スクリプト。
 | `SetAppXService.ps1` | AppX Development Service のスタートアップを手動トリガーに設定する |
 | `SetNetworkSettings.ps1` | TCP の RSS・自動チューニング・タスクオフロードを無効化する |
 | `SetDefenderExclusions.ps1` | Windows Defender のスキャン対象から MsMpEng.exe を除外する |
+| `DisableSysMain.ps1` | SysMain サービスのスタートアップを無効化する |
 
 ---
 
 ## desktop
 
 現在 `desktop/` ディレクトリに Desktop 専用の最適化スクリプトはない。
-`desktop.ps1` は Common の全 14 スクリプトを適用する。
+`desktop.ps1` は Common の全 15 スクリプトを適用する。
 
 ---
 
 ## umpc
 
-Gaming UMPC 専用の最適化スクリプト。`umpc.ps1` は Common 全 14 スクリプトに加え、以下を適用する。
+Gaming UMPC 専用の最適化スクリプト。`umpc.ps1` は Common 全 15 スクリプトに加え、以下を適用する。
 
 | スクリプト名 | 説明 |
 |---|---|
