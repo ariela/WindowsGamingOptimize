@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 #Requires -RunAsAdministrator
 
 <#
@@ -31,6 +31,7 @@ Write-ScriptLog -Level INFO -Message '=== Desktop 最適化 開始 ==='
 # 最適化スクリプトをドットソース（関数定義の読み込み）
 foreach ($Category in @('common', 'desktop')) {
     $CategoryDir = Join-Path -Path $RootDir -ChildPath $Category
+    if (-not (Test-Path -Path $CategoryDir -PathType Container)) { continue }
     foreach ($ScriptFile in Get-ChildItem -Path $CategoryDir -Filter '*.ps1' -File) {
         . $ScriptFile.FullName
     }
@@ -64,7 +65,7 @@ foreach ($Step in $Steps) {
     catch {
         $StepError = $_
         $FailureCount++
-        Write-ScriptLog -Level ERROR -Message "--- $Step 失敗: $($StepError.Message) ---"
+        Write-ScriptLog -Level ERROR -Message "--- $Step 失敗: $($StepError.Exception.Message) ---"
     }
 }
 

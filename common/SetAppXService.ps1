@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 #Requires -RunAsAdministrator
 
 <#
@@ -25,7 +25,7 @@ function Set-AppXService {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "AppXSvc 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "AppXSvc 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }

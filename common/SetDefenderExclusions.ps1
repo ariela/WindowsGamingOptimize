@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 #Requires -RunAsAdministrator
 
 <#
@@ -30,7 +30,7 @@ function Set-DefenderExclusion {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "除外パス設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "除外パス設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }
@@ -48,7 +48,7 @@ function Set-DefenderExclusion {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "除外プロセス設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "除外プロセス設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }

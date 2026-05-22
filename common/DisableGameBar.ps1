@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 
 <#
 .SYNOPSIS
@@ -33,7 +33,7 @@ function Disable-GameBar {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "GameDVR 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "GameDVR 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }
@@ -48,7 +48,7 @@ function Disable-GameBar {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "GameConfigStore 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "GameConfigStore 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }

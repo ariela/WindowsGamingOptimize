@@ -10,7 +10,7 @@ description = "PSScriptAnalyzer でリポジトリ全体を静的解析する"
 run = """
 #!/usr/bin/env pwsh
 Import-Module PSScriptAnalyzer
-$results = Invoke-ScriptAnalyzer -Path . -Recurse -ExcludeRule PSUseBOMForUnicodeEncodedFile
+$results = Invoke-ScriptAnalyzer -Path . -Recurse
 $results | Format-Table RuleName, Severity, Line, ScriptName, Message -AutoSize
 if ($results | Where-Object { $_.Severity -eq 'Error' }) { exit 1 }
 """
