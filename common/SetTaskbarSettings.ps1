@@ -2,7 +2,7 @@
 
 <#
 .SYNOPSIS
-    タスクバーの表示設定と Copilot を無効化する（Desktop・UMPC 共通）。
+    タスクバーの表示設定とウィジェット・Copilot を無効化する（Desktop・UMPC 共通）。
 .EXAMPLE
     Set-TaskbarSetting
 .EXAMPLE
@@ -17,11 +17,13 @@ function Set-TaskbarSetting {
         $AdvancedKey      = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced'
         $CopilotPolicyKey = 'HKCU:\Software\Policies\Microsoft\Windows\WindowsCopilot'
         $SearchPolicyKey  = 'HKCU:\Software\Policies\Microsoft\Windows\Explorer'
+        $WidgetsPolicyKey = 'HKLM:\SOFTWARE\Policies\Microsoft\Dsh'
 
         Backup-RegistryKey -Path $SearchKey
         Backup-RegistryKey -Path $AdvancedKey
         Backup-RegistryKey -Path $CopilotPolicyKey
         Backup-RegistryKey -Path $SearchPolicyKey
+        Backup-RegistryKey -Path $WidgetsPolicyKey
 
         if ($PSCmdlet.ShouldProcess($SearchKey, '検索ボックスをテキスト検索ボックスで表示')) {
             try {
@@ -82,6 +84,21 @@ function Set-TaskbarSetting {
             catch {
                 $Err = $_
                 Write-ScriptLog -Level ERROR -Message "検索サジェスト無効化失敗: $($Err.Exception.Message)"
+                throw
+            }
+        }
+
+        if ($PSCmdlet.ShouldProcess($WidgetsPolicyKey, 'ウィジェット機能を無効化')) {
+            try {
+                if (-not (Test-Path -Path $WidgetsPolicyKey)) {
+                    $null = New-Item -Path $WidgetsPolicyKey -Force -ErrorAction Stop
+                }
+                Set-ItemProperty -Path $WidgetsPolicyKey -Name 'AllowNewsAndInterests' -Value 0 -Type DWord -ErrorAction Stop
+                Write-ScriptLog -Level INFO -Message 'AllowNewsAndInterests = 0'
+            }
+            catch {
+                $Err = $_
+                Write-ScriptLog -Level ERROR -Message "ウィジェット無効化失敗: $($Err.Exception.Message)"
                 throw
             }
         }
