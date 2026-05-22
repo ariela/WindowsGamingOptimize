@@ -40,7 +40,6 @@ function Set-TaskbarSetting {
         $AdvancedProps = [ordered]@{
             'ShowCopilotButton'  = @{ Value = 0; Desc = 'タスクバー: Copilot ボタン → OFF' }
             'ShowTaskViewButton' = @{ Value = 0; Desc = 'タスクバー: タスクビュー → OFF' }
-            'TaskbarDa'          = @{ Value = 0; Desc = 'タスクバー: ウィジェット → OFF' }
         }
 
         foreach ($Name in $AdvancedProps.Keys) {
