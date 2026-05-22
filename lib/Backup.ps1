@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 
 <#
 .SYNOPSIS
@@ -54,7 +54,7 @@ function Backup-RegistryKey {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level WARN -Message "バックアップをスキップ（続行）: $($Err.Message)"
+                Write-ScriptLog -Level WARN -Message "バックアップをスキップ（続行）: $($Err.Exception.Message)"
             }
         }
     }

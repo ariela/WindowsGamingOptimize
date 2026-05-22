@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 
 <#
 .SYNOPSIS
@@ -29,7 +29,7 @@ function Set-AccessibilitySetting {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "WinEnterLaunchEnabled 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "WinEnterLaunchEnabled 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }
@@ -41,7 +41,7 @@ function Set-AccessibilitySetting {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "PrintScreenKeyForSnippingEnabled 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "PrintScreenKeyForSnippingEnabled 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }

@@ -101,7 +101,7 @@ try {
 }
 catch {
     $Err = $_
-    Write-Error "変更失敗: $($Err.Message)"
+    Write-Error "変更失敗: $($Err.Exception.Message)"
 }
 ```
 

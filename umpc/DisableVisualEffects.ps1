@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 
 <#
 .SYNOPSIS
@@ -32,7 +32,7 @@ function Disable-VisualEffect {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "EnableTransparency 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "EnableTransparency 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }
@@ -45,7 +45,7 @@ function Disable-VisualEffect {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "UserPreferencesMask 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "UserPreferencesMask 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }
@@ -57,7 +57,7 @@ function Disable-VisualEffect {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "MinAnimate 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "MinAnimate 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }

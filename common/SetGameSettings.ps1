@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 
 <#
 .SYNOPSIS
@@ -34,7 +34,7 @@ function Set-GameSetting {
                 }
                 catch {
                     $Err = $_
-                    Write-ScriptLog -Level ERROR -Message "$Name 設定失敗: $($Err.Message)"
+                    Write-ScriptLog -Level ERROR -Message "$Name 設定失敗: $($Err.Exception.Message)"
                     throw
                 }
             }

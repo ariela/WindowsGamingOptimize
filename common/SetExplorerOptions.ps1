@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 
 <#
 .SYNOPSIS
@@ -43,7 +43,7 @@ function Set-ExplorerOption {
                 }
                 catch {
                     $Err = $_
-                    Write-ScriptLog -Level ERROR -Message "$Name 設定失敗: $($Err.Message)"
+                    Write-ScriptLog -Level ERROR -Message "$Name 設定失敗: $($Err.Exception.Message)"
                     throw
                 }
             }
@@ -56,7 +56,7 @@ function Set-ExplorerOption {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "ShowCloudFilesInQuickAccess 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "ShowCloudFilesInQuickAccess 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }
@@ -71,7 +71,7 @@ function Set-ExplorerOption {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "右クリックメニュー設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "右クリックメニュー設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }
@@ -83,7 +83,7 @@ function Set-ExplorerOption {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "ScrollWidth 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "ScrollWidth 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }

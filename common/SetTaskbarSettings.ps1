@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 
 <#
 .SYNOPSIS
@@ -30,7 +30,7 @@ function Set-TaskbarSetting {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "SearchboxTaskbarMode 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "SearchboxTaskbarMode 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }
@@ -50,8 +50,8 @@ function Set-TaskbarSetting {
                 }
                 catch {
                     $Err = $_
-                    Write-ScriptLog -Level ERROR -Message "$Name 設定失敗: $($Err.Message)"
-                    throw
+                    # 個別プロパティの失敗は WARN に留め、後続設定の適用を継続する
+                    Write-ScriptLog -Level WARN -Message "$Name 設定スキップ（環境非対応の可能性）: $($Err.Exception.Message)"
                 }
             }
         }
@@ -66,7 +66,7 @@ function Set-TaskbarSetting {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "Copilot 無効化失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "Copilot 無効化失敗: $($Err.Exception.Message)"
                 throw
             }
         }
@@ -81,7 +81,7 @@ function Set-TaskbarSetting {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "検索サジェスト無効化失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "検索サジェスト無効化失敗: $($Err.Exception.Message)"
                 throw
             }
         }

@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 #Requires -RunAsAdministrator
 
 <#
@@ -27,7 +27,7 @@ function Set-DisplaySetting {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "HwSchMode 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "HwSchMode 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }
@@ -42,7 +42,7 @@ function Set-DisplaySetting {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "DirectXUserGlobalSettings 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "DirectXUserGlobalSettings 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }

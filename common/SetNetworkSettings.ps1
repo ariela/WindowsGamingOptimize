@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 #Requires -RunAsAdministrator
 
 <#
@@ -28,7 +28,7 @@ function Set-NetworkSetting {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "RSS 無効化失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "RSS 無効化失敗: $($Err.Exception.Message)"
                 throw
             }
         }
@@ -43,7 +43,7 @@ function Set-NetworkSetting {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message '自動チューニング無効化失敗: $($Err.Message)'
+                Write-ScriptLog -Level ERROR -Message "自動チューニング無効化失敗: $($Err.Exception.Message)"
                 throw
             }
         }
@@ -55,7 +55,7 @@ function Set-NetworkSetting {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "DisableTaskOffload 設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "DisableTaskOffload 設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }

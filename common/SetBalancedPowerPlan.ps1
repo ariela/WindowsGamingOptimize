@@ -1,4 +1,4 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 #Requires -RunAsAdministrator
 
 <#
@@ -34,7 +34,7 @@ function Set-BalancedPowerPlan {
             }
             catch {
                 $Err = $_
-                Write-ScriptLog -Level ERROR -Message "電源プラン設定失敗: $($Err.Message)"
+                Write-ScriptLog -Level ERROR -Message "電源プラン設定失敗: $($Err.Exception.Message)"
                 throw
             }
         }
